@@ -24,28 +24,6 @@ public class Reto2DesktopClient extends Application {
     
     @Override
     public void start(Stage primaryStage) {
-        //REST CLIENTS
-        UserManager userManager = UserManagerFactory.getUserManager();
-        User user = userManager.find(Club.class, "1");
-        System.out.println(user.toString());
-        
-        ClubManager clubManager = ClubManagerFactory.getClubManager();
-        Club club = clubManager.find(Club.class, "1");
-        System.out.println(club.toString());
-        
-        ArtistManager artistManager = ArtistManagerFactory.getArtistManager();
-        Artist artist = artistManager.find(Artist.class, "8");
-        System.out.println(artist.toString());
-        System.out.println(artist.getFullName());
-        
-        List<Club> clubs = new ArrayList<>();
-        clubs = (List<Club>)clubManager.getAllClubs(List.class);
-        
-        for(int i = 0; i < clubs.size(); ++i) {
-            System.out.println(clubs.get(i).toString());
-        }
-        //REST CLIENTS
-        
         Button btn = new Button();
         btn.setText("Say 'Hello World'");
         btn.setOnAction((ActionEvent event) -> {
