@@ -20,7 +20,7 @@ import static org.testfx.matcher.base.NodeMatchers.isFocused;
  * @author Matteo
  */
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
-public class ArtistManagementControllerTest extends ApplicationTest {
+public class EventManagementControllerTest extends ApplicationTest {
 
     /**
      *
@@ -34,14 +34,9 @@ public class ArtistManagementControllerTest extends ApplicationTest {
 
     @Test
     public void test1_InitialState() {
-        verifyThat("#btnDisableArtist", isDisabled());
-        verifyThat("#menuItemDisableArtist", isDisabled());
-        verifyThat("#btnEnableArtist", isDisabled());
-        verifyThat("#menuItemEnableArtist", isDisabled());
-        verifyThat("#btnNewArtist", isDisabled());
-        verifyThat("#menuItemNewArtist", isDisabled());
-        verifyThat("#btnAddArtist", isEnabled());
-        verifyThat("#btnSeeEvents", isEnabled());
-        verifyThat("#txtFullNameArtist", isFocused());
+        verifyThat("#btnRemove", isDisabled());
+        verifyThat("#btnAdd", isFocused());
+        verifyThat("#btnBack", isEnabled());
+
     }
 }
