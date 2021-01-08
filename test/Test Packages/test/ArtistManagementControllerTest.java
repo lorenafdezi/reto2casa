@@ -17,7 +17,7 @@ import static org.testfx.matcher.base.NodeMatchers.isFocused;
 
 /**
  *
- * @author Matteo
+ * @author Matteo Fernández
  */
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class ArtistManagementControllerTest extends ApplicationTest {
@@ -31,7 +31,6 @@ public class ArtistManagementControllerTest extends ApplicationTest {
     public void start(Stage stage) throws Exception {
 
     }
-
     @Test
     public void test1_InitialState() {
         verifyThat("#btnDisableArtist", isDisabled());
@@ -44,4 +43,5 @@ public class ArtistManagementControllerTest extends ApplicationTest {
         verifyThat("#btnSeeEvents", isEnabled());
         verifyThat("#txtFullNameArtist", isFocused());
     }
+
 }
