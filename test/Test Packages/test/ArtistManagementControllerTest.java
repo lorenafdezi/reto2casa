@@ -23,9 +23,4 @@ public class ArtistManagementControllerTest extends ApplicationTest {
         
     }
 
-    @Test
-    public void test1_UserExists() {
-        
-    }
-
 }
