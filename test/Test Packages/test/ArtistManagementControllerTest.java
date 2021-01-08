@@ -13,7 +13,7 @@ import org.testfx.framework.junit.ApplicationTest;
 
 /**
  *
- * @author Lorena
+ * @author Matteo Fernández
  */
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class ArtistManagementControllerTest extends ApplicationTest {
