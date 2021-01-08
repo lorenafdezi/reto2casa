@@ -17,31 +17,24 @@ import static org.testfx.matcher.base.NodeMatchers.isFocused;
 
 /**
  *
- * @author Matteo Fernández
+ * @author Matteo
  */
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
-public class ArtistManagementControllerTest extends ApplicationTest {
+public class ClubManagementControllerTest extends ApplicationTest {
 
     /**
+     * Starts application to be tested.
      *
-     * @param stage
-     * @throws Exception
+     * @param stage Primary Stage object
+     * @throws Exception if we have any error
      */
     @Override
     public void start(Stage stage) throws Exception {
 
     }
+
     @Test
     public void test1_InitialState() {
-        verifyThat("#btnDisableArtist", isDisabled());
-        verifyThat("#menuItemDisableArtist", isDisabled());
-        verifyThat("#btnEnableArtist", isDisabled());
-        verifyThat("#menuItemEnableArtist", isDisabled());
-        verifyThat("#btnNewArtist", isDisabled());
-        verifyThat("#menuItemNewArtist", isDisabled());
-        verifyThat("#btnAddArtist", isEnabled());
-        verifyThat("#btnSeeEvents", isEnabled());
-        verifyThat("#txtFullNameArtist", isFocused());
     }
 
 }
