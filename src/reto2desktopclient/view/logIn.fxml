@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.InnerShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<Pane id="imagenFdondo" fx:id="fxPanel" maxHeight="-Infinity" maxWidth="-Infinity"
+      minHeight="-Infinity" minWidth="-Infinity" prefHeight="415.0"
+      prefWidth="671.0" xmlns="http://javafx.com/javafx/8.0.171"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="reto2desktopclient.view.LogInController">
+    <children>
+        <ImageView fitHeight="316.0" fitWidth="566.0" layoutX="47.0"
+                   layoutY="77.0" pickOnBounds="true">
+            <image>
+                <Image url="@../images/rectangle.png" />
+            </image>
+        </ImageView>
+        <Button fx:id="btnSignUp" layoutX="476.0" layoutY="365.0"
+                mnemonicParsing="false" onAction="#handleButtonSignUp"
+                prefHeight="35.0" prefWidth="80.0" text="Sign Up" textFill="#1d3557" />
+        <Button fx:id="btnAccept" defaultButton="true" layoutX="577.0"
+                layoutY="365.0" mnemonicParsing="false"
+                onAction="#handleButtonAccept" prefHeight="35.0" prefWidth="80.0"
+                text="Accept" textFill="#1d3557" />
+        <Label fx:id="lblErrorUsername" layoutX="274.0" layoutY="180.0"
+               prefHeight="34.0" prefWidth="337.0"
+               text="* Username error message" textFill="#ff0015">
+            <font>
+                <Font size="17.0" />
+            </font>
+        </Label>
+        <Label fx:id="lblErrorPassword" layoutX="270.0" layoutY="279.0"
+               prefHeight="34.0" prefWidth="344.0"
+               text="* Password error message" textFill="#ff0015">
+            <font>
+                <Font size="17.0" />
+            </font>
+        </Label>
+        <TextField fx:id="txtUsername" layoutX="73.0" layoutY="180.0"
+                   prefHeight="35.0" prefWidth="183.0" promptText="Username"
+                   style="-fx-background-color: white;">
+            <opaqueInsets>
+                <Insets />
+            </opaqueInsets>
+        </TextField>
+        <PasswordField fx:id="pwdPassword" layoutX="73.0" layoutY="278.0"
+                       prefHeight="35.0" prefWidth="183.0" promptText="Password"
+                       style="-fx-background-color: white;" />
+        <Label fx:id="lblUsername" cache="true" depthTest="DISABLE" layoutX="77.0"
+               layoutY="128.0" mouseTransparent="true" prefHeight="52.0"
+               prefWidth="155.0" text="Username" textFill="#1d3557" textOverrun="CLIP">
+            <opaqueInsets>
+                <Insets />
+            </opaqueInsets>
+            <font>
+                <Font size="25.0" />
+            </font>
+            <effect>
+                <InnerShadow blurType="TWO_PASS_BOX" height="196.5"
+                             radius="112.375" width="255.0">
+                    <input>
+                        <InnerShadow />
+                    </input>
+                </InnerShadow>
+            </effect>
+        </Label>
+        <Label fx:id="lblPassword" cache="true" cacheHint="SPEED" layoutX="77.0"
+               layoutY="228.0" mouseTransparent="true" prefHeight="17.0"
+               prefWidth="111.0" text="Password">
+            <font>
+                <Font size="25.0" />
+            </font>
+            <effect>
+                <InnerShadow />
+            </effect>
+        </Label>
+        <ImageView fitHeight="111.0" fitWidth="111.0" layoutX="264.0"
+                   pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../images/user.png" />
+            </image>
+            <effect>
+                <DropShadow color="#ffcdcd" />
+            </effect>
+        </ImageView>
+    </children>
+</Pane>
