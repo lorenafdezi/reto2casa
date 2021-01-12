@@ -1,4 +1,4 @@
-package entity;
+package reto2desktopclient.model;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -28,15 +28,6 @@ import javax.xml.bind.annotation.XmlTransient;
  * Superclass of all type of users, contains common attributes.
  * @author Aitor Fidalgo
  */
-@NamedQueries({
-    @NamedQuery(
-            name = "signIn", 
-            query = "SELECT us FROM User us WHERE us.login like :login AND us.password like :password"
-            )
-})
-@Entity
-@Inheritance(strategy=InheritanceType.JOINED)
-@Table(name="user", schema="reto2G2i")
 @XmlRootElement
 public class User implements Serializable {
     private static final long serialVersionUID = 1L;
@@ -44,60 +35,43 @@ public class User implements Serializable {
     /**
      * Used to identify Users.
      */
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     protected Integer id;
     
     /**
      * Unique name of the User in the system.
      */
-    @NotNull
     private String login;
     /**
      * Email of the User.
      */
-    @NotNull
-    @Pattern(regexp="^[\\w-]+(\\.[\\w-]+)*@[A-Za-z0-9]+(\\.[A-Za-z0-9]+)*"
-            + "(\\.[A-Za-z]{2,})$")
     private String email;
     /**
      * Full and real name of the User.
      */
-    @NotNull
     private String fullName;
     /**
      * Brief description the Users writes about themselves.
      */
-    @NotNull
     private String biography;
     /**
      * Two possible value enum that defines the Users status.
      */
-    @NotNull
-    @Enumerated(EnumType.STRING)
     private UserStatus userStatus;
     /**
      * Enum that defines the type of User.
      */
-    @NotNull
-    @Enumerated(EnumType.STRING)
     private UserPrivilege userPrivilege;
     /**
      * Credential of the User.
      */
-    @NotNull
     private String password;
     /**
      * Specifies the last time the User loged in into the system.
      */
-    @NotNull
-    @Temporal(TemporalType.TIMESTAMP)
     private Date lastAccess;
     /**
      * Specifies the last time the User chaged their password.
      */
-    @NotNull
-    @Temporal(TemporalType.TIMESTAMP)
     private Date lastPasswordChange;
     /**
      * Name of the profile image of the User.
@@ -110,7 +84,6 @@ public class User implements Serializable {
      * The relation was supposed to be between Client and Rating but due to an
      * Hibernate bug it can't be done. See more <a href="https://discourse.hibernate.org/t/embededid-containing-a-foreign-key-of-an-entity-with-inheritance/2334">here</a>
      */
-    @OneToMany(cascade=CascadeType.ALL, mappedBy="client", fetch = FetchType.EAGER)
     private Set<Rating> ratings;
     
     
@@ -202,7 +175,6 @@ public class User implements Serializable {
         this.profileImage = profileImage;
     }
     
-    @XmlTransient
     public Set<Rating> getRatings() {
         return ratings;
     }

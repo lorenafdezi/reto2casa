@@ -1,4 +1,4 @@
-package entity;
+package reto2desktopclient.model;
 
 import java.io.Serializable;
 import java.util.Set;
@@ -16,18 +16,15 @@ import javax.xml.bind.annotation.XmlTransient;
  *
  * @author Martin Angulo
  */
-@NamedQueries({
-    @NamedQuery(name = "getAllClubs", query = "SELECT c FROM Club c"),
-})
-@Entity
-@Table(name="club", schema="reto2G2i")
 @XmlRootElement
 public class Club extends User implements Serializable {
+    
     private static final long serialVersionUID = 1L;
+    
     private String location;
     private String phoneNum;
     
-    @OneToMany(mappedBy = "club", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    
     private Set<Event> events;
 
     /**
@@ -61,7 +58,6 @@ public class Club extends User implements Serializable {
     /**
      * @return the events
      */
-    @XmlTransient
     public Set<Event> getEvents() {
         return events;
     }
