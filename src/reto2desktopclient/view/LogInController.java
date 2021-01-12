@@ -74,9 +74,10 @@ public class LogInController {
      * @param event
      */
     @FXML
-    public void handleButtonAccept(ActionEvent event) {
+    private void handleButtonAccept(ActionEvent event) {
         try {
             LOGGER.log(Level.INFO, "Accept button pressed");
+            switchToAdminMainMenuWindow();
             //TODO: Fix User signIn REST method.
         } catch (ClientErrorException ex) {
             Alert alert = new Alert(Alert.AlertType.ERROR, ex.getMessage(), ButtonType.OK);
@@ -92,7 +93,7 @@ public class LogInController {
     private void switchToAdminMainMenuWindow() {
         try {
             LOGGER.log(Level.INFO, "Redirecting to AdminMainMenu window.");
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/reto2desktopclient/view/AdminMainMenu.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/reto2desktopclient/view/adminMainMenu.fxml"));
             Parent root = (Parent) loader.load();
             //Getting window controller.
             AdminMainMenuController controller = (loader.getController());
@@ -108,13 +109,13 @@ public class LogInController {
     /**
      * Switches the scene from LogIn to ArtistManagement.
      */
-    private void switchToArtistManagementWindow() {
+    private void switchToArtistProfileWindow() {
         try {
             LOGGER.log(Level.INFO, "Redirecting to ArtistManagement window.");
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/reto2desktopclient/view/ArtistManagement.fxml"));
             Parent root = (Parent) loader.load();
             //Getting window controller.
-            ArtistManagementController controller = (loader.getController());
+            ArtistProfileController controller = (loader.getController());
             controller.setStage(stage);
             //Initializing stage.
             controller.initStage(root);
@@ -126,13 +127,13 @@ public class LogInController {
     /**
      * Switches the scene from LogIn to ClubManagement.
      */
-    private void switchToClubManagementWindow() {
+    private void switchToClubProfileWindow() {
         try {
             LOGGER.log(Level.INFO, "Redirecting to ClubManagement window.");
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/reto2desktopclient/view/ClubManagement.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/reto2desktopclient/view/clubProfile.fxml"));
             Parent root = (Parent) loader.load();
             //Getting window controller.
-            ClubManagementController controller = (loader.getController());
+            ClubProfileController controller = (loader.getController());
             controller.setStage(stage);
             //Initializing stage.
             controller.initStage(root);

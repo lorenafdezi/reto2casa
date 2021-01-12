@@ -18,7 +18,7 @@
          <children>
             <Button fx:id="btnLogOut" layoutX="519.0" layoutY="8.0"
                     mnemonicParsing="false" prefHeight="29.0"
-                    prefWidth="67.0" text="Log Out" />
+                    prefWidth="67.0" text="Log Out" onAction="#handleButtonLogOut"/>
          </children>
       </Pane>
    </top>
@@ -27,7 +27,8 @@
             prefWidth="100.0" BorderPane.alignment="CENTER">
          <children>
             <Button fx:id="btnManageClients" mnemonicParsing="false"
-                    prefHeight="75.0" prefWidth="300.0" text="Manage Clients">
+                    prefHeight="75.0" prefWidth="300.0" text="Manage Clients"
+                    onAction="#handleButtonManageClients">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>
@@ -36,7 +37,8 @@
                </VBox.margin>
             </Button>
             <Button fx:id="btnManageClubs" mnemonicParsing="false"
-                    prefHeight="75.0" prefWidth="300.0" text="Manage Clubs">
+                    prefHeight="75.0" prefWidth="300.0" text="Manage Clubs"
+                    onAction="#handleButtonManageClubs">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>
@@ -45,7 +47,8 @@
                </VBox.margin>
             </Button>
             <Button fx:id="btnManageArtists" mnemonicParsing="false"
-                    prefHeight="75.0" prefWidth="300.0" text="Manage Artists">
+                    prefHeight="75.0" prefWidth="300.0" text="Manage Artists"
+                    onAction="#handleButtonManageArtists">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>
@@ -54,7 +57,8 @@
                </VBox.margin>
             </Button>
             <Button fx:id="btnManageEvents" mnemonicParsing="false"
-                    prefHeight="75.0" prefWidth="300.0" text="Manage Events">
+                    prefHeight="75.0" prefWidth="300.0" text="Manage Events"
+                    onAction="#handleButtonManageEvents">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>
