@@ -1,20 +1,11 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package reto2desktopclient;
 
-import entity.*;
-import java.util.ArrayList;
-import java.util.List;
+import java.io.IOException;
 import javafx.application.Application;
-import javafx.event.ActionEvent;
-import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.layout.StackPane;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.stage.Stage;
-import reto2desktopclient.client.*;
+import reto2desktopclient.view.LogInController;
 
 /**
  *
@@ -23,21 +14,13 @@ import reto2desktopclient.client.*;
 public class Reto2DesktopClient extends Application {
     
     @Override
-    public void start(Stage primaryStage) {
-        Button btn = new Button();
-        btn.setText("Say 'Hello World'");
-        btn.setOnAction((ActionEvent event) -> {
-            System.out.println("Hello World");
-        });
-        
-        StackPane root = new StackPane();
-        root.getChildren().add(btn);
-        
-        Scene scene = new Scene(root, 300, 250);
-        
-        primaryStage.setTitle("Hello World!");
-        primaryStage.setScene(scene);
-        primaryStage.show();
+    public void start(Stage primaryStage) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/reto2desktopclient/view/LogIn.fxml"));
+        Parent root = (Parent) loader.load();
+        LogInController controller = (loader.getController());
+        primaryStage.setResizable(Boolean.FALSE);
+        controller.setStage(primaryStage);
+        controller.initStage(root);
     }
 
     /**

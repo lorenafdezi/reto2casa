@@ -1,30 +1,18 @@
-package entity;
+package reto2desktopclient.model;
 
 import java.io.Serializable;
 import java.net.URL;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
-import javax.xml.bind.annotation.XmlTransient;
 
 /**
  * Stores a social network of an Artist.
  * @see Artist
  * @author Aitor Fidalgo
  */
-@Entity
-@Table(name="socialNetwork", schema="reto2G2i")
 public class SocialNetwork implements Serializable {
     private static final long serialVersionUID = 1L;
     
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
     private URL socialNetwork;
-    @ManyToOne
     private Artist artist;
 
     public Integer getId() {
@@ -42,7 +30,7 @@ public class SocialNetwork implements Serializable {
     public void setSocialNetwork(URL socialNetwork) {
         this.socialNetwork = socialNetwork;
     }
-    @XmlTransient
+
     public Artist getArtist() {
         return artist;
     }

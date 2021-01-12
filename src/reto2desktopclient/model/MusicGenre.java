@@ -1,4 +1,4 @@
-package entity;
+package reto2desktopclient.model;
 
 /**
  *

@@ -1,61 +1,30 @@
-package entity;
+package reto2desktopclient.model;
 
 import java.io.Serializable;
 import java.util.Date;
 import java.util.Set;
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
-import javax.persistence.Temporal;
 import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
  * @author Matteo Fernández
  */
-@NamedQueries({
-    @NamedQuery(
-            name = "getAllEvents", 
-            query = "SELECT ev FROM Event ev"
-    )
-})
-@Entity
-@Table(name = "event", schema = "reto2G2i")
 @XmlRootElement
 public class Event implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
     private String name;
-    @Temporal(javax.persistence.TemporalType.DATE)
     private Date date;
     private String place;
     private Float ticketprice;
     private String description;
     private String profileImage;
-    @ManyToOne
     private Club club;
 
-    @ManyToMany(mappedBy="events", fetch = FetchType.EAGER)
     private Set<Artist> artists;
-    
-    @ManyToMany(mappedBy="events", fetch = FetchType.EAGER)
     private Set<Client> clients;
-    
-    @OneToMany(cascade=CascadeType.ALL, mappedBy="event", fetch = FetchType.EAGER)
     private Set<Rating> ratings;
 
     
@@ -115,7 +84,6 @@ public class Event implements Serializable {
         return artists;
     }
 
-    @XmlTransient
     public Set<Client> getClients() {
         return clients;
     }
