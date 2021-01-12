@@ -102,6 +102,7 @@ public class LogInController {
         } catch (IOException ex) {
             LOGGER.log(Level.SEVERE, "Could not switch to AdminMainMenu window: {0}", ex.getMessage());
         }
+      
     }
     
     /**
