@@ -50,20 +50,4 @@ public class ArtistManagementController {
     @FXML
     private Button btnBack;
 
-    public void handleButtonSignUp(ActionEvent event) {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/logIn.fxml"));
-            Parent root = (Parent) loader.load();
-            LogInController controller = (loader.getController());
-            controller.setStage(stage);
-            controller.initStage(root);
-        } catch (IOException e) {
-            //traza al salir una excepción
-            Logger.getLogger(LogInController.class.getName()).log(Level.SEVERE, "Se ha abierto la ventana", e);
-            Alert alert = new Alert(Alert.AlertType.ERROR, "Could not change to Sign Up window.", ButtonType.OK);
-            alert.showAndWait();
-        }
-
-    }
-
 }
