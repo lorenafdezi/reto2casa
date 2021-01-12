@@ -1,5 +1,11 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package reto2desktopclient.view;
 
+import java.util.logging.Level;
 import javafx.fxml.FXML;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -7,9 +13,10 @@ import javafx.stage.Stage;
 
 /**
  *
- * @author Aitor Fidalgo
+ * @author aitor
  */
-public class ClientManagementController {
+class ArtistProfileController {
+    
     @FXML
     private Stage stage;
     
