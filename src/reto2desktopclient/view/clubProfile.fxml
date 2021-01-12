@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" 
+      prefHeight="490.0" prefWidth="623.0" xmlns="http://javafx.com/javafx/11.0.1" 
+      xmlns:fx="http://javafx.com/fxml/1" fx:controller="reto2desktopclient.view.ClubProfileController">
+   <children>
+      <ImageView id="imgPicture" fitHeight="97.0" fitWidth="102.0" layoutX="41.0" layoutY="29.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@user.png" />
+         </image>
+      </ImageView>
+      <TextField id="txtName" layoutX="189.0" layoutY="29.0" prefHeight="25.0" prefWidth="172.0" promptText="Write the club name" />
+      <TextArea id="txtDescription" layoutX="189.0" layoutY="207.0" prefHeight="187.0" prefWidth="344.0" promptText="Write the club description" />
+      <Button id="btnBack" layoutX="15.0" layoutY="451.0" mnemonicParsing="false" text="Back" />
+      <Button id="btnEditProfile" layoutX="433.0" layoutY="451.0" mnemonicParsing="false" text="Edit profile" />
+      <Button id="btnSaveChanges" layoutX="521.0" layoutY="451.0" mnemonicParsing="false" text="Save changes" />
+      <ComboBox id="imgCombo" layoutX="35.0" layoutY="145.0" prefHeight="25.0" prefWidth="130.0" />
+      <TextField id="txtEmail" layoutX="189.0" layoutY="99.0" prefHeight="25.0" prefWidth="172.0" promptText="Write the club email" />
+      <TextField id="txtLocation" layoutX="189.0" layoutY="135.0" prefHeight="25.0" prefWidth="172.0" promptText="Write the club location" />
+      <TextField id="txtPhoneNumber" layoutX="189.0" layoutY="167.0" prefHeight="25.0" prefWidth="172.0" promptText="Write the club phone number" />
+      <TextField id="txtUsername" layoutX="189.0" layoutY="65.0" prefHeight="25.0" prefWidth="172.0" promptText="Write the club username" />
+   </children>
+</Pane>
