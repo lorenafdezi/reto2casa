@@ -1,7 +1,6 @@
 package reto2desktopclient.model;
 
 import java.io.Serializable;
-import javax.persistence.Embeddable;
 
 /**
  * Compound id for Rates form by a User and an Events id.
@@ -10,7 +9,6 @@ import javax.persistence.Embeddable;
  * @see Event
  * @author Aitor Fidalgo
  */
-@Embeddable
 public class RatingId implements Serializable{
     /**
      * Id of the User that made the Rating.
