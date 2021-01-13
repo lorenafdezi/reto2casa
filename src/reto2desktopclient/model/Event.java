@@ -1,4 +1,4 @@
-package entity;
+package reto2desktopclient.model;
 
 import java.io.Serializable;
 import java.util.Date;
