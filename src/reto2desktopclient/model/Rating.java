@@ -1,14 +1,6 @@
 package reto2desktopclient.model;
 
 import java.io.Serializable;
-import javax.persistence.EmbeddedId;
-import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
-import javax.persistence.MapsId;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
-import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
@@ -20,18 +12,6 @@ import javax.xml.bind.annotation.XmlTransient;
  * @see Event
  * @author Aitor Fidalgo
  */
-@NamedQueries({
-    @NamedQuery(
-            name = "getAllRatingsByUserId",
-            query = "SELECT ra FROM Rating ra WHERE ra.ratingId.clientId=:clientId"
-    )
-    , @NamedQuery(
-            name = "getAllRatingsByEventId",
-            query = "SELECT ra FROM Rating ra WHERE ra.ratingId.eventId=:eventId"
-    )
-})
-@Entity
-@Table(name = "rating", schema = "reto2G2i")
 @XmlRootElement
 public class Rating implements Serializable {
 
@@ -39,7 +19,6 @@ public class Rating implements Serializable {
     /**
      * Compound id used to identify the rating.
      */
-    @EmbeddedId
     private RatingId ratingId;
     /**
      * User that rated the Event.
@@ -51,14 +30,10 @@ public class Rating implements Serializable {
      * See more
      * <a href="https://discourse.hibernate.org/t/embededid-containing-a-foreign-key-of-an-entity-with-inheritance/2334">here</a>
      */
-    @MapsId("clientId")
-    @ManyToOne
     private User client;
     /**
      * Event that has been rated.
      */
-    @MapsId("eventId")
-    @ManyToOne
     private Event event;
     /**
      * Brief commentary about an Event made by a User.
@@ -67,7 +42,6 @@ public class Rating implements Serializable {
     /**
      * Numeric evaluation of an Event made by a User.
      */
-    @NotNull
     private Integer rating;
 
     /**

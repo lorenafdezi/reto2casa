@@ -1,4 +1,5 @@
 package reto2desktopclient.model;
+
 /**
  *
  * @author 2dam

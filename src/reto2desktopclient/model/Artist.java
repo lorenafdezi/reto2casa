@@ -2,38 +2,19 @@ package reto2desktopclient.model;
 
 import java.io.Serializable;
 import java.util.Set;
-import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.FetchType;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 
 /**
  * Class Artist extends from user
  * @author Ander, Matteo
  */
-@NamedQueries({
-    @NamedQuery(name = "getAllArtists", query = "SELECT a FROM Artist a")
-})
-@Entity
-@Table(name="artist", schema="reto2G2i")
 @XmlRootElement
 public class Artist extends User implements Serializable {
 
     private static final long serialVersionUID = 1L;
-    @OneToMany(mappedBy="artist", fetch = FetchType.EAGER)
+    
     private Set<SocialNetwork> socialNetworks;
-    @Enumerated(EnumType.STRING)
     private MusicGenre musicGenre;
-    @ManyToMany
-    @JoinTable(name="artist_event", schema="reto2G2i")
     private Set<Event> events;
 
 
@@ -53,7 +34,6 @@ public class Artist extends User implements Serializable {
         return socialNetworks;
     }
 
-    @XmlTransient
     public Set<Event> getEvents() {
         return events;
     }
