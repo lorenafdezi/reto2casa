@@ -2,9 +2,7 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ChoiceBox?>
-<?import javafx.scene.control.ContextMenu?>
 <?import javafx.scene.control.DatePicker?>
-<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
@@ -14,30 +12,52 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox prefHeight="474.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="reto2desktopclient.view.ArtistManagementController">
+<VBox prefHeight="474.0" prefWidth="640.0" 
+      xmlns="http://javafx.com/javafx/9.0.1" 
+      xmlns:fx="http://javafx.com/fxml/1" 
+      fx:controller="reto2desktopclient.view.ArtistManagementController">
     <children>
-        <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="614.0" prefWidth="689.0" VBox.vgrow="ALWAYS">
+        <AnchorPane maxHeight="-1.0" maxWidth="-1.0"
+                    prefHeight="614.0" prefWidth="689.0" VBox.vgrow="ALWAYS">
             <children>
-                <Button id="btnAddArtist" layoutX="548.0" layoutY="429.0" mnemonicParsing="false" text="Add artist" />
-                <Text layoutX="222.0" layoutY="42.0" strokeType="OUTSIDE" strokeWidth="0.0" text="REGISTER AN ARTIST:" wrappingWidth="360.80005493164066">
+                <Text layoutX="222.0" layoutY="42.0" strokeType="OUTSIDE" 
+                      strokeWidth="0.0" text="REGISTER AN ARTIST:" 
+                      wrappingWidth="360.80005493164066">
                     <font>
                         <Font size="26.0" />
                     </font>
                 </Text>
-                <Text layoutX="31.0" layoutY="73.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Full Name:" />
-                <TextField id="txtFullNameArtist" layoutX="27.0" layoutY="86.0" prefHeight="26.0" prefWidth="171.0" promptText="Insert the artist full name" />
-                <TextField id="txtEmailArtist" layoutX="27.0" layoutY="152.0" prefHeight="26.0" prefWidth="171.0" promptText="Insert the artist email" />
-                <Text layoutX="33.0" layoutY="137.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email:" />
-                <Text layoutX="254.0" layoutY="73.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Username:" />
-                <TextField id="txtUserNameArtist" layoutX="253.0" layoutY="87.0" promptText="Insert the artist username" />
-                <Text layoutX="254.0" layoutY="145.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Music genre:" />
-                <ChoiceBox layoutX="247.0" layoutY="153.0" prefWidth="150.0"></ChoiceBox>
-                <Text layoutX="477.0" layoutY="73.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Status:" />
-                <RadioButton layoutX="445.0" layoutY="91.0" mnemonicParsing="false" text="Enabled" />
-                <RadioButton layoutX="515.0" layoutY="91.0" mnemonicParsing="false" text="Disabled" />
-                <Text layoutX="477.0" layoutY="137.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Last access:" />
-                <DatePicker layoutX="447.0" layoutY="152.0" prefHeight="26.0" prefWidth="150.0" />
-                <TableView id="tableArtists" layoutX="63.0" layoutY="209.0" prefHeight="200.0" prefWidth="529.0">
+                <Text layoutX="42.0" layoutY="73.0" strokeType="OUTSIDE" 
+                      strokeWidth="0.0" text="Full Name:" />
+                <TextField fx:id="txtFullNameArtist" layoutX="42.0" 
+                           layoutY="87.0" prefHeight="26.0" prefWidth="171.0"
+                           promptText="Insert the artist full name" />
+                <TextField fx:id="txtEmailArtist" layoutX="42.0" layoutY="152.0"
+                           prefHeight="26.0" prefWidth="171.0"
+                           promptText="Insert the artist email" />
+                <Text layoutX="42.0" layoutY="137.0" strokeType="OUTSIDE" 
+                      strokeWidth="0.0" text="Email:" />
+                <Text layoutX="254.0" layoutY="73.0" strokeType="OUTSIDE" 
+                      strokeWidth="0.0" text="Username:" />
+                <TextField fx:id="txtUserNameArtist" layoutX="254.0" 
+                           layoutY="87.0" 
+                           promptText="Insert the artist username" />
+                <Text layoutX="254.0" layoutY="145.0" strokeType="OUTSIDE" 
+                      strokeWidth="0.0" text="Music genre:" />
+                <ChoiceBox fx:id="choiceBox" layoutX="254.0" layoutY="153.0" 
+                           prefWidth="150.0" />
+                <Text layoutX="445.0" layoutY="73.0" strokeType="OUTSIDE"
+                      strokeWidth="0.0" text="Status:" />
+                <RadioButton layoutX="445.0" layoutY="91.0" 
+                             mnemonicParsing="false" text="Enabled" />
+                <RadioButton layoutX="515.0" layoutY="91.0" 
+                             mnemonicParsing="false" text="Disabled" />
+                <Text layoutX="445.0" layoutY="137.0" strokeType="OUTSIDE" 
+                      strokeWidth="0.0" text="Last access:" />
+                <DatePicker layoutX="445.0" layoutY="152.0" prefHeight="26.0"
+                            prefWidth="150.0" />
+                <TableView fx:id="tableArtists" layoutX="63.0" layoutY="209.0" 
+                           prefHeight="200.0" prefWidth="529.0">
                     <columns>
                         <TableColumn prefWidth="75.20001220703125" text="Login" />
                         <TableColumn prefWidth="86.40000915527344" text="Email" />
@@ -46,18 +66,15 @@
                         <TableColumn prefWidth="104.0" text="Music Genre" />
                         <TableColumn prefWidth="97.0" text="Status" />
                     </columns>
-                    <contextMenu>
-                        <ContextMenu>
-                            <items>
-                                <MenuItem id="menuItemDisableArtist" mnemonicParsing="false" text="Disable Artist" />
-                                <MenuItem id="menuItemEnableArtist" mnemonicParsing="false" text="Enable client" />
-                                <MenuItem id="menuItemNewArtist" mnemonicParsing="false" text="New Artist" />
-                            </items>
-                        </ContextMenu>
-                    </contextMenu>
                 </TableView>
-                <Button id="btnDisableArtist" layoutX="322.0" layoutY="429.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="91.0" text="Update Artist" />
-                <Button id="btnEnableArtist" layoutX="432.0" layoutY="429.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="91.0" text="Delete Artist" />
+                <Button fx:id="btnUpdateArtist" layoutX="322.0" layoutY="429.0"
+                        mnemonicParsing="false" prefHeight="17.0"
+                        prefWidth="91.0" text="Update Artist" />
+                <Button fx:id="btnDeleteArtist" layoutX="432.0" layoutY="429.0"
+                        mnemonicParsing="false" prefHeight="26.0" 
+                        prefWidth="91.0" text="Delete Artist" />
+                <Button fx:id="btnAddArtist" layoutX="548.0" layoutY="429.0"
+                        mnemonicParsing="false" text="Add artist" />
             </children>
         </AnchorPane>
     </children>
