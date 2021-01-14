@@ -6,6 +6,8 @@ import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javafx.beans.Observable;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -14,6 +16,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -26,6 +29,8 @@ import javafx.stage.Stage;
  */
 public class ArtistManagementController {
 
+    private static final Logger LOGGER = Logger.getLogger(LogInController.class.getName());
+    ObservableList<String> choiceBoxList = FXCollections.observableArrayList("RAP", "EMD");
     @FXML
     private Stage stage;
     @FXML
@@ -51,10 +56,14 @@ public class ArtistManagementController {
     @FXML
     private TextField txtFullNameArtist;
     @FXML
-    private Button btnSeeEvents;
+    private ChoiceBox choiceBox;
     @FXML
-    private Button btnBack;
+    private Button btnSeeEvents;
+    boolean errorEmailLenght = false;
+    boolean errorEmailPattern = false;
+    boolean errorTxtUserNameArtist = false;
 
+    @FXML
     /**
      * Abre la ventana de Log In cuando pulsas el botón back
      *
@@ -95,11 +104,36 @@ public class ArtistManagementController {
         }
     }
 
-    /**
-     * Check the pattern of the full name
-     * @param obs
-     */
-    public void handleTextFullNameArtist(Observable obs) {
+    public void setStage(Stage stage) {
+        this.stage = stage;
+    }
+
+    public Stage getStage() {
+        return stage;
+    }
+
+    void initStage(Parent root
+    ) {
+        Scene scene = new Scene(root);
+        Logger.getLogger(LogInController.class.getName()).log(Level.INFO, "Initializing stage...");
+        stage.setScene(scene);
+        stage.setTitle("Artist Management");
+        stage.setResizable(false);
+        txtFullNameArtist.requestFocus();
+        btnDisableArtist.setDisable(true);
+        txtEmailArtist.textProperty().addListener(this::handletxtEmailArtist);
+        txtFullNameArtist.textProperty().addListener(this::handleTextFullNameArtist);
+        txtUserNameArtist.textProperty().addListener(this::handletxtUserNameArtist);
+        btnEnableArtist.setDisable(true);
+        btnNewArtist.setDisable(true);
+        menuItemDisableArtist.setDisable(true);
+        menuItemEnableArtist.setDisable(true);
+        menuItemNewArtist.setDisable(true);
+        btnAddArtist.setTooltip(new Tooltip("Click to send credentials."));
+        stage.show();
+    }
+
+    private void handleTextFullNameArtist(Observable obs) {
         Integer txtFullNameLength = txtFullNameArtist.getText().trim().length();
         Pattern patternFullName = Pattern.compile("^([A-Za-z]+[ ]?)+$");
         Matcher matcherFullName = patternFullName.matcher(txtFullNameArtist.getText());
@@ -126,25 +160,33 @@ public class ArtistManagementController {
         }
     }
 
-    void setStage(Stage stage
-    ) {
-        this.stage = stage;
+    //for the txt Username
+    private void handletxtUserNameArtist(Observable obs) {
+        Integer usLenght = txtUserNameArtist.getText().trim().length();
+        //if username =0 or <255= error
+        if (usLenght == 0 || usLenght > 255) {
+            errorTxtUserNameArtist = true;
+        } else {
+            errorTxtUserNameArtist = false;
+        }
     }
 
-    void initStage(Parent root
-    ) {
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
-        stage.setTitle("Artist Management");
-        stage.setResizable(false);
-        txtFullNameArtist.requestFocus();
-        btnDisableArtist.setDisable(true);
-        btnEnableArtist.setDisable(true);
-        btnNewArtist.setDisable(true);
-        menuItemDisableArtist.setDisable(true);
-        menuItemEnableArtist.setDisable(true);
-        menuItemNewArtist.setDisable(true);
-        btnAddArtist.setTooltip(new Tooltip("Click to send credentials."));
-        stage.show();
+    //for the txt Email
+    public void handletxtEmailArtist(Observable obs) {
+        Integer txtEmailLength = txtEmailArtist.getText().trim().length();
+        Pattern patternEmail = Pattern.compile("^[\\w-]+(\\.[\\w-]+)*@"
+                + "[A-Za-z0-9]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$");
+        Matcher matcherEmail = patternEmail.matcher(txtEmailArtist.getText());
+
+        if (txtEmailLength == 0 || txtEmailLength > 255) {
+            errorEmailLenght = true;
+        } else if (!matcherEmail.matches()) {
+            errorEmailPattern = true;
+        } else {
+            errorEmailLenght = false;
+            errorEmailPattern = false;
+        }
+
     }
 }
+
