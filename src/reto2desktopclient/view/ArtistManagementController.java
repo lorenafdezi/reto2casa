@@ -163,7 +163,7 @@ public class ArtistManagementController {
     public Stage getStage() {
         return stage;
     }
-
+  
     private void testInputErrors() {
         if (errorTxtFullNameArtist || errorTxtUserNameArtist || errorEmailLenght) {
             btnAddArtist.setDisable(false);

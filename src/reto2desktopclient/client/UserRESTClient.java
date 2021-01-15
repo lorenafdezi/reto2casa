@@ -20,18 +20,23 @@ import javax.ws.rs.client.WebTarget;
  *        client.close();
  * </pre>
  *
- * @author Martin Angulo <martin.angulo at tartanga.eus>
+ * @author aitor
  */
 public class UserRESTClient implements UserManager {
 
     private WebTarget webTarget;
     private Client client;
-    //TODO: Leer la URL de un archivo de propiedades
-    private static final String BASE_URI = "http://localhost:8080/reto2Server/webresources";
+    private static final String BASE_URI = "http://localhost:11238/reto2Server/webresources";
 
     public UserRESTClient() {
         client = javax.ws.rs.client.ClientBuilder.newClient();
         webTarget = client.target(BASE_URI).path("entity.user");
+    }
+
+    public <T> T getPrivilege(Class<T> responseType, String login) throws ClientErrorException {
+        WebTarget resource = webTarget;
+        resource = resource.path(java.text.MessageFormat.format("getPrivilege/{0}", new Object[]{login}));
+        return resource.request(javax.ws.rs.core.MediaType.APPLICATION_XML).get(responseType);
     }
 
     public void edit(Object requestEntity, String id) throws ClientErrorException {
