@@ -18,6 +18,11 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.Tooltip;
 import javafx.stage.Stage;
 import javax.ws.rs.ClientErrorException;
+import reto2desktopclient.client.UserManagerFactory;
+import reto2desktopclient.model.Artist;
+import reto2desktopclient.model.Club;
+import reto2desktopclient.model.User;
+import reto2desktopclient.security.PublicCrypt;
 
 /**
  * Controls the SignIn window behaviour.
@@ -77,7 +82,30 @@ public class LogInController {
     private void handleButtonAccept(ActionEvent event) {
         try {
             LOGGER.log(Level.INFO, "Accept button pressed");
-            switchToAdminMainMenuWindow();
+            User user = UserManagerFactory.getUserManager().
+                    getPrivilege(User.class, txtUsername.getText());
+            String encodedPassword = PublicCrypt.encode(pwdPassword.getText());
+            switch(user.getUserPrivilege()) {
+                case ADMIN:
+                    user = UserManagerFactory.getUserManager().signIn(
+                            User.class, txtUsername.getText(), encodedPassword);
+                    System.out.println(user.getFullName());
+                    switchToAdminMainMenuWindow();
+                    break;
+                case ARTIST:
+                    Artist artist = UserManagerFactory.getUserManager().signIn(
+                            Artist.class, txtUsername.getText(), encodedPassword);
+                    System.out.println(artist.getFullName());
+                    switchToArtistProfileWindow();
+                    break;
+                case CLUB:
+                    Club club = UserManagerFactory.getUserManager().signIn(
+                            Club.class, txtUsername.getText(), encodedPassword);
+                    System.out.println(club.getFullName());
+                    switchToClubProfileWindow();
+                    break;
+            }
+            
             //TODO: Fix User signIn REST method.
         } catch (ClientErrorException ex) {
             Alert alert = new Alert(Alert.AlertType.ERROR, ex.getMessage(), ButtonType.OK);
@@ -93,7 +121,7 @@ public class LogInController {
     private void switchToAdminMainMenuWindow() {
         try {
             LOGGER.log(Level.INFO, "Redirecting to AdminMainMenu window.");
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/reto2desktopclient/view/adminMainMenu.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/reto2desktopclient/view/AdminMainMenu.fxml"));
             Parent root = (Parent) loader.load();
             //Getting window controller.
             AdminMainMenuController controller = (loader.getController());
@@ -130,7 +158,7 @@ public class LogInController {
     private void switchToClubProfileWindow() {
         try {
             LOGGER.log(Level.INFO, "Redirecting to ClubManagement window.");
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/reto2desktopclient/view/clubProfile.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/reto2desktopclient/view/ClubProfile.fxml"));
             Parent root = (Parent) loader.load();
             //Getting window controller.
             ClubProfileController controller = (loader.getController());
