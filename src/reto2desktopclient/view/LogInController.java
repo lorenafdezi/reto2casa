@@ -89,19 +89,16 @@ public class LogInController {
                 case ADMIN:
                     user = UserManagerFactory.getUserManager().signIn(
                             User.class, txtUsername.getText(), encodedPassword);
-                    System.out.println(user.getFullName());
                     switchToAdminMainMenuWindow();
                     break;
                 case ARTIST:
                     Artist artist = UserManagerFactory.getUserManager().signIn(
                             Artist.class, txtUsername.getText(), encodedPassword);
-                    System.out.println(artist.getFullName());
                     switchToArtistProfileWindow();
                     break;
                 case CLUB:
                     Club club = UserManagerFactory.getUserManager().signIn(
                             Club.class, txtUsername.getText(), encodedPassword);
-                    System.out.println(club.getFullName());
                     switchToClubProfileWindow();
                     break;
             }
