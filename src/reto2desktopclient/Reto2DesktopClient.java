@@ -29,5 +29,4 @@ public class Reto2DesktopClient extends Application {
     public static void main(String[] args) {
         launch(args);
     }
-    
 }

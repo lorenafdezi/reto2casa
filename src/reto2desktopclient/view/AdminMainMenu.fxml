@@ -7,28 +7,18 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="borderPane" maxHeight="-Infinity" maxWidth="-Infinity"
-            minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0"
-            prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171"
-            xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="reto2desktopclient.view.AdminMainMenuController">
+<BorderPane fx:id="borderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.261" xmlns:fx="http://javafx.com/fxml/1" fx:controller="reto2desktopclient.view.AdminMainMenuController">
    <top>
-      <Pane fx:id="paneHeader" prefHeight="45.0"
-            prefWidth="600.0" BorderPane.alignment="CENTER">
+      <Pane fx:id="paneHeader" prefHeight="45.0" prefWidth="600.0" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="btnLogOut" layoutX="519.0" layoutY="8.0"
-                    mnemonicParsing="false" prefHeight="29.0"
-                    prefWidth="67.0" text="Log Out" onAction="#handleButtonLogOut"/>
+            <Button fx:id="btnLogOut" layoutX="519.0" layoutY="8.0" mnemonicParsing="false" onAction="#handleButtonLogOut" prefHeight="29.0" prefWidth="67.0" text="Log Out" />
          </children>
       </Pane>
    </top>
    <center>
-      <VBox fx:id="vBox" alignment="CENTER" prefHeight="200.0"
-            prefWidth="100.0" BorderPane.alignment="CENTER">
+      <VBox fx:id="vBox" alignment="CENTER" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="btnManageClients" mnemonicParsing="false"
-                    prefHeight="75.0" prefWidth="300.0" text="Manage Clients"
-                    onAction="#handleButtonManageClients">
+            <Button fx:id="btnManageClients" mnemonicParsing="false" onAction="#handleButtonManageClients" prefHeight="75.0" prefWidth="300.0" text="Manage Clients">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>
@@ -36,9 +26,7 @@
                   <Insets bottom="10.0" />
                </VBox.margin>
             </Button>
-            <Button fx:id="btnManageClubs" mnemonicParsing="false"
-                    prefHeight="75.0" prefWidth="300.0" text="Manage Clubs"
-                    onAction="#handleButtonManageClubs">
+            <Button fx:id="btnManageClubs" mnemonicParsing="false" onAction="#handleButtonManageClubs" prefHeight="75.0" prefWidth="300.0" text="Manage Clubs">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>
@@ -46,9 +34,7 @@
                   <Insets bottom="10.0" />
                </VBox.margin>
             </Button>
-            <Button fx:id="btnManageArtists" mnemonicParsing="false"
-                    prefHeight="75.0" prefWidth="300.0" text="Manage Artists"
-                    onAction="#handleButtonManageArtists">
+            <Button id="btnArtist" fx:id="btnManageArtists" mnemonicParsing="false" onAction="#handleButtonManageArtists" prefHeight="75.0" prefWidth="300.0" text="Manage Artists">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>
@@ -56,9 +42,7 @@
                   <Insets bottom="10.0" />
                </VBox.margin>
             </Button>
-            <Button fx:id="btnManageEvents" mnemonicParsing="false"
-                    prefHeight="75.0" prefWidth="300.0" text="Manage Events"
-                    onAction="#handleButtonManageEvents">
+            <Button fx:id="btnManageEvents" mnemonicParsing="false" onAction="#handleButtonManageEvents" prefHeight="75.0" prefWidth="300.0" text="Manage Events">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>

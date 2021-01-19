@@ -18,11 +18,6 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.Tooltip;
 import javafx.stage.Stage;
 import javax.ws.rs.ClientErrorException;
-import reto2desktopclient.client.UserManagerFactory;
-import reto2desktopclient.model.Artist;
-import reto2desktopclient.model.Club;
-import reto2desktopclient.model.User;
-import reto2desktopclient.security.PublicCrypt;
 
 /**
  * Controls the SignIn window behaviour.
@@ -49,7 +44,6 @@ public class LogInController {
     private boolean errorUsername = true;
     private boolean errorPassword = true;
     
-
     /**
      * Initializes the scene and its components
      *
@@ -82,27 +76,7 @@ public class LogInController {
     private void handleButtonAccept(ActionEvent event) {
         try {
             LOGGER.log(Level.INFO, "Accept button pressed");
-            User user = UserManagerFactory.getUserManager().
-                    getPrivilege(User.class, txtUsername.getText());
-            String encodedPassword = PublicCrypt.encode(pwdPassword.getText());
-            switch(user.getUserPrivilege()) {
-                case ADMIN:
-                    user = UserManagerFactory.getUserManager().signIn(
-                            User.class, txtUsername.getText(), encodedPassword);
-                    switchToAdminMainMenuWindow();
-                    break;
-                case ARTIST:
-                    Artist artist = UserManagerFactory.getUserManager().signIn(
-                            Artist.class, txtUsername.getText(), encodedPassword);
-                    switchToArtistProfileWindow();
-                    break;
-                case CLUB:
-                    Club club = UserManagerFactory.getUserManager().signIn(
-                            Club.class, txtUsername.getText(), encodedPassword);
-                    switchToClubProfileWindow();
-                    break;
-            }
-            
+            switchToAdminMainMenuWindow();
             //TODO: Fix User signIn REST method.
         } catch (ClientErrorException ex) {
             Alert alert = new Alert(Alert.AlertType.ERROR, ex.getMessage(), ButtonType.OK);

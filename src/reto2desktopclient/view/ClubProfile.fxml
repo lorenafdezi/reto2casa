@@ -9,8 +9,7 @@
 <?import javafx.scene.layout.Pane?>
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" 
-      prefHeight="490.0" prefWidth="623.0" xmlns="http://javafx.com/javafx/11.0.1" 
-      xmlns:fx="http://javafx.com/fxml/1" fx:controller="reto2desktopclient.view.ClubProfileController">
+      prefHeight="490.0" prefWidth="623.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="reto2desktopclient.view.ClubProfileController">
    <children>
       <ImageView id="imgPicture" fitHeight="97.0" fitWidth="102.0" layoutX="41.0" layoutY="29.0" pickOnBounds="true" preserveRatio="true">
          <image>
