@@ -29,6 +29,7 @@ import javafx.scene.control.ToggleGroup;
 import javafx.scene.control.Tooltip;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
+import javax.swing.text.View;
 
 /**
  *
@@ -247,12 +248,12 @@ public class ArtistManagementController {
                 txtFullNameArtist.getText(),
                 datePicker.getValue(),
                 choiceBox.getValue().toString(),
-                group.getSelectedToggle().toString()
+                group.selectedToggleProperty().toString()
         ));
         txtFullNameArtist.clear();
         txtUserNameArtist.clear();
         txtEmailArtist.clear();
-       
+
     }
 
 }
