@@ -34,8 +34,8 @@
                 <Text layoutX="254.0" layoutY="145.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Music genre:" />
                 <ChoiceBox fx:id="choiceBox" layoutX="254.0" layoutY="153.0" prefWidth="150.0" />
                 <Text layoutX="445.0" layoutY="73.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Status:" />
-                <RadioButton layoutX="445.0" layoutY="91.0" mnemonicParsing="false" text="Enabled" />
-                <RadioButton layoutX="515.0" layoutY="91.0" mnemonicParsing="false" text="Disabled" />
+                <RadioButton fx:id="btnE" layoutX="445.0" layoutY="91.0" mnemonicParsing="false" text="Enabled" />
+                <RadioButton fx:id="btnD" layoutX="515.0" layoutY="91.0" mnemonicParsing="false" text="Disabled" />
                 <Text layoutX="445.0" layoutY="137.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Last access:" />
                 <DatePicker fx:id="datePicker" layoutX="445.0" layoutY="152.0" prefHeight="26.0" prefWidth="150.0" />
                 <TableView fx:id="tbData" layoutX="63.0" layoutY="209.0" prefHeight="200.0" prefWidth="529.0">

@@ -22,8 +22,10 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.Separator;
 import javafx.scene.control.TableView;
 import javafx.scene.control.Label;
+import javafx.scene.control.RadioButton;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TextField;
+import javafx.scene.control.ToggleGroup;
 import javafx.scene.control.Tooltip;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
@@ -46,6 +48,10 @@ public class ArtistManagementController {
     private TextField txtUserNameArtist;
     @FXML
     private TextField txtEmailArtist;
+    @FXML
+    private RadioButton btnE;
+    @FXML
+    private RadioButton btnD;
     @FXML
     private TextField txtFullNameArtist;
     @FXML
@@ -73,7 +79,8 @@ public class ArtistManagementController {
     @FXML
     public TableColumn<TableModel, String> tblStatus;
     @FXML
-    public TableColumn<TableModel, Float> tblLastaccess;
+    public TableColumn<TableModel, LocalDate> tblLastaccess;
+    ToggleGroup group = new ToggleGroup();
 
     boolean errorEmailLenght = false;
     boolean errorEmailPattern = false;
@@ -95,7 +102,9 @@ public class ArtistManagementController {
         btnAddArtist.setDisable(true);
         btnDeleteArtist.setDisable(true);
         btnUpdateArtist.setDisable(true);
-
+        btnD.setToggleGroup(group);
+        btnE.setToggleGroup(group);
+        btnE.setSelected(true);
         lblNameError1.setVisible(false);
         lblEmailError1.setVisible(false);
         lblUsernameError1.setVisible(false);
@@ -221,6 +230,9 @@ public class ArtistManagementController {
         tblLogin.setCellValueFactory(new PropertyValueFactory<>("tblLogin"));
         tbEmail.setCellValueFactory(new PropertyValueFactory<>("tbEmail"));
         tblName.setCellValueFactory(new PropertyValueFactory<>("tblName"));
+        tblLastaccess.setCellValueFactory(new PropertyValueFactory<>("tblLastaccess"));
+        tblMusic.setCellValueFactory(new PropertyValueFactory<>("tblMusic"));
+        tblStatus.setCellValueFactory(new PropertyValueFactory<>("tblStatus"));
         //add your data to the table here.
         tbData.setItems(tableModel);
     }
@@ -230,15 +242,17 @@ public class ArtistManagementController {
 
     public void handle(ActionEvent e) {
         tableModel.add(new TableModel(
-                txtFullNameArtist.getText(),
                 txtUserNameArtist.getText(),
                 txtEmailArtist.getText(),
-                choiceBox.getItems(),
-                datePicker.getValue()
+                txtFullNameArtist.getText(),
+                datePicker.getValue(),
+                choiceBox.getValue().toString(),
+                group.getSelectedToggle().toString()
         ));
         txtFullNameArtist.clear();
         txtUserNameArtist.clear();
         txtEmailArtist.clear();
+       
     }
 
 }

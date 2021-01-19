@@ -6,9 +6,7 @@
 package reto2desktopclient.view;
 
 import java.time.LocalDate;
-import javafx.beans.property.SimpleFloatProperty;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.collections.ObservableList;
+import javafx.scene.control.ChoiceBox;
 
 /**
  *
@@ -19,11 +17,11 @@ public class TableModel {
     private String tblLogin;
     private String tbEmail;
     private String tblName;
-    private String tblLastaccess;
+    private LocalDate tblLastaccess;
     private String tblMusic;
     private String tblStatus;
 
-    TableModel(String tblLogin, String tbEmail, String tblName, ObservableList items, LocalDate value) {
+    TableModel(String tblLogin, String tbEmail, String tblName, LocalDate tblLastaccess, String tblMusic, String tblStatus) {
         this.tblLogin = tblLogin;
         this.tbEmail = tbEmail;
         this.tblName = tblName;
@@ -57,11 +55,11 @@ public class TableModel {
         this.tblName = tblName;
     }
 
-    public String getTblLastaccess() {
+    public LocalDate getTblLastaccess() {
         return tblLastaccess;
     }
 
-    public void setTblLastaccess(String tblLastaccess) {
+    public void setTblLastaccess(LocalDate tblLastaccess) {
         this.tblLastaccess = tblLastaccess;
     }
 
