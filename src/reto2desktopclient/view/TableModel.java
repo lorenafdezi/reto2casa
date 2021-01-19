@@ -16,68 +16,68 @@ import javafx.collections.ObservableList;
  */
 public class TableModel {
 
-    private SimpleStringProperty tblLogin;
-    private SimpleStringProperty tbEmail;
-    private SimpleStringProperty tblName;
-    private SimpleFloatProperty tblLastaccess;
-    private SimpleStringProperty tblMusic;
-    private SimpleStringProperty tblStatus;
+    private String tblLogin;
+    private String tbEmail;
+    private String tblName;
+    private String tblLastaccess;
+    private String tblMusic;
+    private String tblStatus;
 
     TableModel(String tblLogin, String tbEmail, String tblName, ObservableList items, LocalDate value) {
-        this.tblLogin = new SimpleStringProperty(tblLogin);
-        this.tbEmail = new SimpleStringProperty(tbEmail);
-        this.tblName = new SimpleStringProperty(tblName);
-        this.tblLastaccess = new SimpleFloatProperty(tblLastaccess);
-        this.tblMusic = new SimpleStringProperty(tblMusic);
-        this.tblStatus = new SimpleStringProperty(tblStatus);
+        this.tblLogin = tblLogin;
+        this.tbEmail = tbEmail;
+        this.tblName = tblName;
+        this.tblLastaccess = tblLastaccess;
+        this.tblMusic = tblMusic;
+        this.tblStatus = tblStatus;
 
     }
 
-    public SimpleStringProperty getTblLogin() {
+    public String getTblLogin() {
         return tblLogin;
     }
 
-    public void setTblLogin(SimpleStringProperty tblLogin) {
+    public void setTblLogin(String tblLogin) {
         this.tblLogin = tblLogin;
     }
 
-    public SimpleStringProperty getTbEmail() {
+    public String getTbEmail() {
         return tbEmail;
     }
 
-    public void setTbEmail(SimpleStringProperty tbEmail) {
+    public void setTbEmail(String tbEmail) {
         this.tbEmail = tbEmail;
     }
 
-    public SimpleStringProperty getTblName() {
+    public String getTblName() {
         return tblName;
     }
 
-    public void setTblName(SimpleStringProperty tblName) {
+    public void setTblName(String tblName) {
         this.tblName = tblName;
     }
 
-    public SimpleFloatProperty getTblLastaccess() {
+    public String getTblLastaccess() {
         return tblLastaccess;
     }
 
-    public void setTblLastaccess(SimpleFloatProperty tblLastaccess) {
+    public void setTblLastaccess(String tblLastaccess) {
         this.tblLastaccess = tblLastaccess;
     }
 
-    public SimpleStringProperty getTblMusic() {
+    public String getTblMusic() {
         return tblMusic;
     }
 
-    public void setTblMusic(SimpleStringProperty tblMusic) {
+    public void setTblMusic(String tblMusic) {
         this.tblMusic = tblMusic;
     }
 
-    public SimpleStringProperty getTblStatus() {
+    public String getTblStatus() {
         return tblStatus;
     }
 
-    public void setTblStatus(SimpleStringProperty tblStatus) {
+    public void setTblStatus(String tblStatus) {
         this.tblStatus = tblStatus;
     }
 

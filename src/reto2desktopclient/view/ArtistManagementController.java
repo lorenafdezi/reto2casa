@@ -59,7 +59,7 @@ public class ArtistManagementController {
     @FXML
     private TableView<TableModel> tbData;
     @FXML
-    public TableColumn<TableModel, Integer> tblLogin;
+    public TableColumn<TableModel, String> tblLogin;
     @FXML
     public TableColumn<TableModel, String> tbEmail;
 
